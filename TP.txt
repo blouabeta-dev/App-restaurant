@@ -1,0 +1,78 @@
+ Restaurant Camerounais – Plateforme de commande à distance
+
+ Description du projet
+
+Ce projet est une application client–serveur en Java qui permet à un utilisateur de commander des plats et des boissons à distance via une interface graphique.
+
+Le client peut :
+
+* Voir la liste des plats et boissons disponibles.
+* Sélectionner un plat et une boisson.
+* Envoyer sa commande au serveur via UDP.
+
+Le serveur :
+
+* Reçoit la commande du client.
+* Calcule le total de la commande.
+* Retourne une confirmation détaillée avec le prix des plats, des boissons et le total.
+
+Le projet utilise :
+
+* Java Swing pour l’interface graphique.
+* DatagramSocket pour la communication réseau via UDP.
+* Une architecture client–serveur simple pour simuler un restaurant numérique.
+
+
+ Étapes d’exécution
+
+ Lancer le serveur
+
+1. Ouvrir votre IDE ou un terminal.
+2. Compiler `ServeurRestaurant.java` :
+
+bash
+javac ServeurRestaurant.java
+
+3. Lancer le serveur :
+
+bash
+java ServeurRestaurant
+
+4. Le serveur est maintenant en écoute sur le port "5000" et prêt à recevoir des commandes.
+
+ 4.1 Lancer le client
+
+1. Compiler ClientRestaurant.java et BulleItem.java :
+
+bash
+javac ClientRestaurant.java BulleItem.java
+
+2. Lancer le client :
+
+bash
+java ClientRestaurant
+
+
+3. L’interface graphique s’ouvre :
+
+   * Page d’accueil → "Voir les plats"
+   * Sélectionner un plat → "Continuer"
+   * Sélectionner une boisson → "Commander"
+4. Une fenêtre affiche ensuite la confirmation de la commande envoyée par le serveur.
+
+
+ Fonctionnement général
+
+1. Le client crée un socket UDP pour envoyer la commande au serveur.
+2. Le serveur reçoit le message, le parse, calcule le total et renvoie la réponse au client.
+3. Le client affiche la confirmation à l’utilisateur via une fenêtre `JOptionPane`.
+4. L’interface graphique permet une sélection intuitive grâce aux composants `BulleItem` qui changent de couleur lors de la sélection.
+
+
+Remarques
+
+* La communication se fait via UDP, protocole sans connexion : il est rapide mais non fiable.
+* Le serveur doit être lancé avant le client pour que la commande soit correctement traitée.
+* Les prix et menus sont codés en dur dans le serveur.
+
+
